@@ -1,0 +1,41 @@
+name: "ei-seg"
+network: "ei-seg-ablation"
+#* Output Settings
+output_dir: './logs/${config.dataset}/${config.name}/${config.Ablation_setting}'  # checkpoint_latest save path
+save_suffix: '.mhd'  # the file format saved when training
+#* Model Settings
+in_classes: 1
+out_classes: 2
+load_mode: 0  # 0: load nothing 1: load from checkpoint 2: load from pre_trained model(supervised)
+ckpt: None
+latest_checkpoint_file: 'latest_checkpoint.pt'  # ckpt + latest_checkpoint_file determined load which ckpt file
+#* Training Settings
+crop_or_pad_size: 64, 64, 64  # if 2D: 256,256,1  #USELESS
+patch_size: 64, 64, 64  # if 2D: 128,128,1
+gpu: "0"
+
+# ? EI-Seg only
+see_3d: True # ? show 3d metrics，only for prediction
+upper_0: True # ? gate mse
+
+# ? EI-Seg Ablation Settings
+Ablation_setting: "3d_only" 
+# * w/o_decp_loss, w/o_cycle_loss, 2d_only, no_shared, w/o_stdc, 3d_only, 3d_only_w/o_stdc
+
+train:
+  cycle_val: True  #ture is for cross-val  
+  cycle_val_fold: 5
+  cycle_req_list: [1,2,3,4,5]
+
+predict:
+  cycle_val: True  #ture is for cross-val  
+  cycle_val_fold: 5
+  cycle_req_list: [1,2,3,4,5]
+
+  ckpt_from_csv: True # ? Using cross validation logger to load ckpt； When False, use the ckpt below
+
+  fold_1_ckpt: /disk/cc/STDC-Backbone-new/logs/unet/train_cycleval-2025-06-26/17-43-28/best_checkpoint_epoch001-fold1-dice0.0000.pt
+  fold_2_ckpt: /disk/cc/STDC-Backbone-new/logs/unet/train_cycleval-2025-06-26/17-43-28/best_checkpoint_epoch001-fold2-dice0.0000.pt
+  fold_3_ckpt: /disk/cc/STDC-Backbone-new/logs/unet/train_cycleval-2025-06-26/17-43-28/best_checkpoint_epoch001-fold3-dice0.0000.pt
+  fold_4_ckpt: /disk/cc/STDC-Backbone-new/logs/unet/train_cycleval-2025-06-26/17-43-28/best_checkpoint_epoch001-fold4-dice0.0000.pt
+  fold_5_ckpt: /disk/cc/STDC-Backbone-new/logs/unet/train_cycleval-2025-06-26/17-43-28/best_checkpoint_epoch001-fold5-dice0.0000.pt

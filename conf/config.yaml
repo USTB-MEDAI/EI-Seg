@@ -1,0 +1,54 @@
+defaults:
+  - _self_
+  - config: unet
+
+hydra:
+  run:
+    dir: ${config.output_dir}/${hydra:job.name}-${now:%Y-%m-%d}/${now:%H-%M-%S}
+
+config:
+  dataset: "IXI" # ? ["BMR", "IXI", "CAS"]
+  data_path: '/home/cc/IXI_nii/train/source_nii/'  #IXI
+  gt_path: '/home/cc/IXI_nii/train/label1_nii/'
+  pred_data_path: '/home/cc/IXI_nii/test/source_nii/'
+  pred_gt_path: '/home/cc/IXI_nii/test/label1_nii/'
+
+  # dataset: "BMR" # ? ["BMR", "IXI", "CAS"]
+  # data_path: '/home/cc/Brain-MR/train/source/'  #BMR
+  # gt_path: '/home/cc/Brain-MR/train/label/'
+  # pred_data_path: '/home/cc/Brain-MR/test/source/'
+  # pred_gt_path: '/home/cc/Brain-MR/test/label/'
+
+  # dataset: "CAS" # ? ["BMR", "IXI", "CAS"]
+  # data_path: '/home/cc/CAS2023/train/data/'  #CAS2023
+  # gt_path: '/home/cc/CAS2023/train/mask/'
+  # pred_data_path: '/home/cc/CAS2023/test/data/'
+  # pred_gt_path: '/home/cc/CAS2023/test/mask/'
+
+
+
+  init_type: 'kaiming'  # ['normal', 'xavier', 'xavier_uniform', 'kaiming', 'orthogonal', 'none]
+  aug: True  # True or False
+  epochs: 100 # ? 100 
+  epochs_per_checkpoint: 25
+  batch_size: 4
+  num_workers: 8
+  samples_per_volume: 10
+  init_lr: 0.01
+  scheduler_step_size: 20
+  scheduler_gamma: 0.8
+  cudnn_enabled: True
+  cudnn_benchmark: True
+  use_scheduler: True
+  sampler_type: 'label'  # ['uniform', 'label']
+  suffix: '.nii.gz'
+  debug_mode: False
+
+  cycle_val: ${config.train.cycle_val}
+  cycle_val_fold: ${config.train.cycle_val_fold}
+  cycle_req_list: ${config.train.cycle_req_list}
+
+  val_per_n_epochs: 5 # ? 5
+  
+  job_name: ${hydra:job.name}
+  hydra_path: ${hydra:runtime.output_dir}

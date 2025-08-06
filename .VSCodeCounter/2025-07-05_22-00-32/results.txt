@@ -1,0 +1,42 @@
+Date : 2025-07-05 22:00:32
+Directory : /disk/cc/STDC-Backbone-new
+Total : 15 files,  95 codes, 0 comments, 15 blanks, all 110 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| CSV              |         14 |         80 |          0 |         14 |         94 |
+| pip requirements |          1 |         15 |          0 |          1 |         16 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                   | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                      |         15 |         95 |          0 |         15 |        110 |
+| . (Files)                                                              |          2 |         25 |          0 |          2 |         27 |
+| CrossValidationLogger                                                  |         13 |         70 |          0 |         13 |         83 |
++------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                               | language         | code       | comment    | blank      | total      |
++------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| /disk/cc/STDC-Backbone-new/CrossValidationLogger/csrnet-5.csv          | CSV              |          6 |          0 |          1 |          7 |
+| /disk/cc/STDC-Backbone-new/CrossValidationLogger/ei-seg-5-backup.csv   | CSV              |          6 |          0 |          1 |          7 |
+| /disk/cc/STDC-Backbone-new/CrossValidationLogger/ei-seg-5.csv          | CSV              |          6 |          0 |          1 |          7 |
+| /disk/cc/STDC-Backbone-new/CrossValidationLogger/ei-seg-CAS-5.csv      | CSV              |          4 |          0 |          1 |          5 |
+| /disk/cc/STDC-Backbone-new/CrossValidationLogger/ei-seg-ablation-5.csv | CSV              |          3 |          0 |          1 |          4 |
+| /disk/cc/STDC-Backbone-new/CrossValidationLogger/er_net-5.csv          | CSV              |          6 |          0 |          1 |          7 |
+| /disk/cc/STDC-Backbone-new/CrossValidationLogger/re_net-5-backup.csv   | CSV              |          5 |          0 |          1 |          6 |
+| /disk/cc/STDC-Backbone-new/CrossValidationLogger/re_net-5.csv          | CSV              |          6 |          0 |          1 |          7 |
+| /disk/cc/STDC-Backbone-new/CrossValidationLogger/unet-5-backup.csv     | CSV              |          6 |          0 |          1 |          7 |
+| /disk/cc/STDC-Backbone-new/CrossValidationLogger/unet-5.csv            | CSV              |          6 |          0 |          1 |          7 |
+| /disk/cc/STDC-Backbone-new/CrossValidationLogger/unetr-5-backup.csv    | CSV              |          4 |          0 |          1 |          5 |
+| /disk/cc/STDC-Backbone-new/CrossValidationLogger/unetr-5.csv           | CSV              |          6 |          0 |          1 |          7 |
+| /disk/cc/STDC-Backbone-new/CrossValidationLogger/vnet-5.csv            | CSV              |          6 |          0 |          1 |          7 |
+| /disk/cc/STDC-Backbone-new/flops_statistics.csv                        | CSV              |         10 |          0 |          1 |         11 |
+| /disk/cc/STDC-Backbone-new/requirements.txt                            | pip requirements |         15 |          0 |          1 |         16 |
+| Total                                                                  |                  |         95 |          0 |         15 |        110 |
++------------------------------------------------------------------------+------------------+------------+------------+------------+------------+

@@ -1,0 +1,6 @@
+fold,save_path
+1,/disk/cc/STDC-Backbone-new/logs/ei-seg/train_cycleval-2025-06-26/20-10-41/best_checkpoint_epoch005-fold1-dice0.0000.pt
+2,/disk/cc/STDC-Backbone-new/logs/ei-seg/train_cycleval-2025-06-26/17-43-28/best_checkpoint_epoch001-fold2-dice0.0000.pt
+3,/disk/cc/STDC-Backbone-new/logs/ei-seg/train_cycleval-2025-06-26/17-37-13/best_checkpoint_0001-fold3-dice0.0000.pt
+4,/disk/cc/STDC-Backbone-new/logs/ei-seg/train_cycleval-2025-06-26/17-43-28/best_checkpoint_epoch001-fold4-dice0.0000.pt
+5,/disk/cc/STDC-Backbone-new/logs/ei-seg/train_cycleval-2025-06-26/17-43-28/best_checkpoint_epoch001-fold5-dice0.0000.pt
