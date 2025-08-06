@@ -1,37 +1,44 @@
-# Medical-Template
+# EI-Seg
 
-This is a template for medical image segmentation by Serein.
+This repository contains the implementation of EI-Seg.
 ***
 
 ## Usage
 
-### Set Data Path in conf.yml
+### Set Data Path in conf.yaml
 
-all paramters are in `conf.yml`
+Set data path and dataset name in the config.yaml.
+Also, all the hyperparameters is set in the config.yaml such as batch size and epochs.
 
 ### Train
+Run the script below to train ei_seg in the normal way
 
 ```shell
-torchrun --nproc_per_node 1 --master_port 12341 train.py --gpus 0 -o ./logs/norm_aug/unetr33/ --conf_path ./conf/unetr.yml --use_scheduler
+python scripts/train.py config=ei_seg
 ```
-`-o` : logs will output in this path
-`--network` : choose which network
-`--use_sheduler` : determine whether to use scheduler
-`--patch_size` : patch size of input image
+
+Run the script below to train ei_seg in the cross-validation way
+
+```shell
+python scripts/train_cycleval.py config=ei_seg
+```
+
 ### Predict
+
+Run the script below to predict ei_seg in the normal way
+
 ```shell
-c
+python scripts/predict.py config=ei_seg
 ```
-torchrun --nproc_per_node 1 --master_port 12367 predict.py --gpus 0 -o ./prediction/norm_aug/IXI/unetr22/ --conf_path ./conf/unetr.yml -k ./logs/norm_aug/unetr22
 
-torchrun --nproc_per_node 1 --master_port 12365 predict.py --gpus 1 -o ./prediction/2d3dloss_dice_dec_decouple17/ --conf_path ./conf/stdc2d.yml -k ./logs/2d3dloss_dice_dec_decouple17
+Run the script below to predict ei_seg in the cross-validation way
 
-### opentsne
-torchrun --nproc_per_node 1 --master_port 12391 opentsne_train.py --gpus 0 --conf_path ./conf/opentsne.yml -k ./logs/opentsne/stdc_nodecouple -o ./tsne/figure12/test/stdc_nodecouple/
+```shell
+python scripts/predict_cycleval.py config=ei_seg
+```
 
-torchrun --nproc_per_node 1 --master_port 12390 opentsne_train.py --gpus 0 --conf_path ./conf/opentsne.yml -k ./logs/opentsne/stdc_midas -o ./tsne/figure12/test/stdc_midas/
+## Cross validation
+It is noteworthy that we design an auto-record ckpt system in the condition of cross-validation training. For instance, when training ei_seg in the 5-fold cross-validtion way, the script will record the ckpt with which the model perform the best in the validation for each fold. There will be a 'ei-seg-5.csv' be generated in ./CrossValidationLogger. If it existes, the script will copy it into 'ei-seg-5-backup.csv' automatically. 
 
+When predicting in the condition of cross-validation, there is a option of 'ckpt_from_csv'. If it is set as 'True', the script will autometically load the ckpt from the corresponding csv.
 
-torchrun --nproc_per_node 1 --master_port 12392 opentsne_train.py --gpus 0 --conf_path ./conf/opentsne.yml -k ./logs/opentsne/stdc_nodec_nodecouple -o ./tsne/figure12/test/stdc_nodec_nodecouple/
-
-### our_no_decouple

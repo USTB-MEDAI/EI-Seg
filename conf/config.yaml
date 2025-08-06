@@ -7,23 +7,12 @@ hydra:
     dir: ${config.output_dir}/${hydra:job.name}-${now:%Y-%m-%d}/${now:%H-%M-%S}
 
 config:
-  dataset: "IXI" # ? ["BMR", "IXI", "CAS"]
-  data_path: '/home/cc/IXI_nii/train/source_nii/'  #IXI
-  gt_path: '/home/cc/IXI_nii/train/label1_nii/'
-  pred_data_path: '/home/cc/IXI_nii/test/source_nii/'
-  pred_gt_path: '/home/cc/IXI_nii/test/label1_nii/'
+  dataset: 'dataset name'
+  data_path: 'path/to/data'
+  gt_path: 'path/to/gt'
+  pred_data_path: 'path/to/pred_data'
+  pred_gt_path: 'path/to/pred_gt'
 
-  # dataset: "BMR" # ? ["BMR", "IXI", "CAS"]
-  # data_path: '/home/cc/Brain-MR/train/source/'  #BMR
-  # gt_path: '/home/cc/Brain-MR/train/label/'
-  # pred_data_path: '/home/cc/Brain-MR/test/source/'
-  # pred_gt_path: '/home/cc/Brain-MR/test/label/'
-
-  # dataset: "CAS" # ? ["BMR", "IXI", "CAS"]
-  # data_path: '/home/cc/CAS2023/train/data/'  #CAS2023
-  # gt_path: '/home/cc/CAS2023/train/mask/'
-  # pred_data_path: '/home/cc/CAS2023/test/data/'
-  # pred_gt_path: '/home/cc/CAS2023/test/mask/'
 
 
 
